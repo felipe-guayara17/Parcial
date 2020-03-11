@@ -1,0 +1,56 @@
+<mat-toolbar color='primary'>
+  <span>MIO AMABLE :)</span>
+</mat-toolbar>
+
+<div >
+<mat-form-field class="example-full-width">
+  <mat-label>Costo Del Pasaje</mat-label>
+  <input matInput placeholder="$1500" [(ngModel)]="pasaje" type="number">
+</mat-form-field>
+{{pasaje}}
+<br>
+<br>
+<mat-form-field class="example-full-width">
+  <mat-label>Ingrese su Nombre</mat-label>
+  <input matInput placeholder="evaristo" [(ngModel)]="nombre" type="text">
+</mat-form-field>
+{{nombre}}
+<br>
+<br>
+<mat-form-field class="example-full-width">
+  <mat-label>Ingrese su Edad</mat-label>
+  <input matInput placeholder="24" [(ngModel)]="edad" type="number">
+</mat-form-field>
+{{edad}}
+<br>
+<mat-card-subtitle>¿Es usted un estudiante?</mat-card-subtitle>
+<div *ngFor="let estudiante of decision1">
+  <!-- create a radio button-->
+  <input 
+  type="radio"
+  name="estudiante1"
+  value="{{estudiante}}"
+  (change)="radio1($event)">
+  <i>{{estudiante}}</i>
+</div>
+<!-- the radio button change will be reflected below -->
+<p><span>You selected: </span><b>{{seleccion1}}</b></p>
+<br>
+<mat-card-subtitle>¿Tiene grupo un gran grupo familiar?</mat-card-subtitle>
+<div *ngFor="let tomar of decision2">
+  <!-- create a radio button-->
+  <input 
+  type="radio"
+  name="familia"
+  value="{{tomar}}"
+  (change)="radio2($event)">
+  <i>{{tomar}}</i>
+</div>
+<!-- the radio button change will be reflected below -->
+<p><span>You selected: </span><b>{{seleccion2}}</b></p>
+
+<button mat-raised-button color="primary" (click)="calcular()">Gestionar</button>
+
+{{descuento}}
+
+<router-outlet></router-outlet>
